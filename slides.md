@@ -1,20 +1,37 @@
 ---
-layout: cover
-class: title-slide
+layout: center
+theme: default
 ---
 
-# Cross-Platform Mobile Application Development  
-### General Information
+**Table of contents**
+
+<Toc />
+
+---
+layout: intro
+theme: default
+---
+
+# Lecture 1, basics of the study module   
+
+### Cross-Platform Mobile Application Development
+
+
 
 ---
 
-# Welcome to Study Cross-Platform Mobile Application Development!
+## Assignments
 
+- ### **Learning Diary (80 Points)**
+-- To complete this course, a personal learning diary or report is required.
+- ### **Extras (30 Points)**
+-- Smaller tasks to complement the learning diary will be published later.
+
+#### _Total of 110 points available_
 ---
 
-### Assignments
 
-#### **Learning Diary (80 Points)**
+## **Learning Diary (80 Points)**
 
 To complete this course, a personal learning diary or report is required:
 
@@ -28,23 +45,21 @@ To complete this course, a personal learning diary or report is required:
   - Reflections on your learning and its impact on your future career.
   - Clear explanations of development choices and learning outcomes.
   - Visualized architecture of your application.
-- **Study Path 1**: Include all assignments given in the videos.
+- **Study Path 1**: Include assignments given in the lectures.
 
-Alternatively, you may keep a **blog** or **vlog** as your learning diary.
-
-#### **Extras (30 Points)**
-Smaller tasks to complement the learning diary will be published later.
+**Alternatively, you may keep a **blog** or **vlog** as your learning diary.**
 
 ---
 
-### Grading
 
-#### **Learning Diary**
+## Grading
+
+### **Learning Diary**
 - Maximum of 80 points.
 - **Study Path 1**: Evaluated based on quality, amount of work, and completion of assignments.
 - **Study Path 2**: Evaluated based on the quality and amount of work.
 
-#### **Extras**
+### **Extras**
 - Smaller tasks to increase your grade by up to 30 points.
 
 **Points to Grade:**
@@ -58,7 +73,7 @@ Smaller tasks to complement the learning diary will be published later.
 
 ---
 
-### Schedule
+## Schedule
 
 <div class="table-container">
 <table>
@@ -81,7 +96,7 @@ Smaller tasks to complement the learning diary will be published later.
       <td>28.01.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
-      <td>Introduction to cross-platform development</td>
+      <td>Hands-on cross-platform development</td>
     </tr>
     <tr>
       <td>04.02.2025</td>
@@ -93,31 +108,31 @@ Smaller tasks to complement the learning diary will be published later.
       <td>20.02.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
-      <td>Setting up the environment</td>
+      <td>First cross-platform mobile application</td>
     </tr>
     <tr>
       <td>27.02.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
-      <td>First cross-platform mobile application</td>
+      <td>Best practices with chosen technology</td>
     </tr>
     <tr>
       <td>12.03.2025</td>
       <td>12:30 - 16:00</td>
       <td>B243</td>
-      <td>Best practices with chosen technology</td>
+      <td>Workshop</td>
     </tr>
     <tr>
       <td>20.03.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
-      <td>Problems with platform-specific code</td>
+      <td>Platform-specific code</td>
     </tr>
     <tr>
       <td>27.03.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
-      <td>Testing of cross-platform mobile application</td>
+      <td>Testing the application</td>
     </tr>
     <tr>
       <td>03.04.2025</td>
@@ -137,12 +152,16 @@ Smaller tasks to complement the learning diary will be published later.
 
 ---
 
-### Study Paths
+## Study Paths
+<br/>
 
-#### **1. Hands-on Working**
+### **1. Hands-on Working**
 - Complete the course by following lectures and completing the assignments.
 
-#### **2. Independent Study**
+<br/>
+
+
+### **2. Independent Study**
 - Choose a cross-platform mobile application technology/framework.
 - Develop an application that meets given requirements.
 
@@ -150,7 +169,7 @@ Smaller tasks to complement the learning diary will be published later.
 
 ---
 
-### Instructor
+## Instructor
 
 **Matias Hiltunen**  
 [matias.hiltunen@lapinamk.fi](mailto:matias.hiltunen@lapinamk.fi)  
@@ -159,7 +178,7 @@ Best way to contact me is through Teams or email!
 
 ---
 
-### First exercise
+## First task
 
 _Answer how you currently understand the terms_
 
@@ -173,38 +192,57 @@ _Answer how you currently understand the terms_
 
 ---
 
+# Lecture 2, Flutter & React Native 
+
+
+<br/>
+
+### hands-on experience of the most used cross-platform development tools
+
+
+Requirements:
+
+> Install latest versions 
+
+- Android Studio, https://developer.android.com/studio
+- Git, https://git-scm.com/
+- NodeJs, https://nodejs.org/en
+- VSCode (recommended), https://code.visualstudio.com/
+
+React Native: https://reactnative.dev/docs/set-up-your-environment
+
+Flutter: https://docs.flutter.dev/get-started/install
+
+-- _React Native and Flutter setup will be done together on lecture_
+
+---
+
+## Assignment of the lecture
+
+### Setup both, Flutter and React Native development environments
+
+**Using starter applications of each technology:**
+
+1. Modify the code to create two simple buttons to the view
+
+2. Apply state modifiers so that one button increments and other button decrements displayed value
+
+3. Add comparison to learning diary (or blog) of the state management approaches of Flutter and React Native.
+
+4. Search for more information about the differences between React Native and Flutter, add summary of the differences to learning diary.
+
+--- 
+
+## Voting for the Path 1 technology
+
+---
+
+
+
 <style>
-/********** Styling **********/
 
-.title-slide {
-    background-color: #2E86C1;
-    color: white;
-    font-size: 2.5em;
-    text-align: center;
-    padding: 4em 2em;
-}
 
-h1, h2, h3 {
-    color: #154360;
-    font-family: 'Arial', sans-serif;
-}
 
-p {
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-ul {
-    margin-left: 20px;
-    list-style: disc;
-}
-
-blockquote {
-    font-style: italic;
-    border-left: 4px solid #5DADE2;
-    padding-left: 10px;
-    color: #566573;
-}
 
 .table-container {
     margin: 20px auto;
@@ -215,13 +253,8 @@ blockquote {
 }
 
 .table-container th, .table-container td {
-    border: 1px solid #ABB2B9;
     text-align: left;
     padding: 8px;
 }
 
-.table-container th {
-    background-color: #D6EAF8;
-    color: #154360;
-}
 </style>
