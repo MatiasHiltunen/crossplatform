@@ -155,7 +155,7 @@ To complete this course, a personal learning diary or report is required:
 ## Study Paths
 <br/>
 
-### **1. Hands-on Working**
+### **1. Lecture sets**
 - Complete the course by following lectures and completing the assignments.
 
 <br/>
