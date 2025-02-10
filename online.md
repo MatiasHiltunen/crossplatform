@@ -8,13 +8,64 @@ theme: default
 <Toc />
 
 ---
-layout: intro
+layout: image
 theme: default
+image: https://static.vecteezy.com/system/resources/previews/032/947/577/non_2x/technology-meets-nature-with-smart-phone-free-photo.jpg
+backgroundSize: cover
 ---
 
-# Lecture 1, introduction
+# Lecture 1, Introduction
 
-### Cross-Platform Mobile Application Development
+## Cross-Platform Mobile Application Development
+
+---
+
+### Learning Outcomes
+The student is able to design and implement platform-independent mobile applications, taking into account the differences between various mobile platforms.
+
+### Content
+- Native Mobile Programming vs. Platform-Independent Mobile Programming
+- Different implementations of a platform-independent mobile application
+- Development of a platform-independent mobile application with the selected technology
+- Platform-independent mobile application development process: finalization, testing, and deployment
+
+---
+
+## Instructor
+
+**Matias Hiltunen**  
+[matias.hiltunen@lapinamk.fi](mailto:matias.hiltunen@lapinamk.fi)  
+
+_Best way to contact me is through Teams or email :)_
+
+---
+
+
+## Learning Methods
+In the study module, up-to-date methods and materials are utilized in the teaching of cross-platform mobile programming. During the study module, students will familiarize themselves with different cross-platform mobile programming techniques and methods.
+
+At the beginning of the study module, the student chooses the method of completion:
+- A project-based approach focusing on a specific cross-platform technology to deepen skills with the chosen technique.
+- Alternatively, completing smaller exercises throughout the study module that cover multiple different cross-platform mobile programming techniques.
+>_From Peppi_
+
+--- 
+layout: default
+---
+
+
+## Assessment Criteria
+
+### Satisfactory (1-2)
+The student is familiar with various options for implementing a platform-independent mobile application and can implement simple mobile applications with the chosen technology under supervision.
+
+### Good (3-4)
+The student is able to independently design and implement functional platform-independent mobile applications and can independently search for and apply external information sources in development work.
+
+### Excellent (5)
+The student is able to independently design and implement challenging platform-independent mobile applications and make effective use of testing and optimization tools in the finalization of a mobile application.
+>_From Peppi_
+
 
 
 
@@ -51,13 +102,12 @@ To complete this course, a personal learning diary or report is required:
 
 ---
 
-
 ## Grading
 
 ### **Learning Diary**
-- Maximum of 80 points.
-- **Study Path 1**: Evaluated based on quality, amount of work, and completion of assignments.
-- **Study Path 2**: Evaluated based on the quality and amount of work.
+- General assessment criteria is applied to learning diary regardless of the chosen path.
+- **Study Path 1**: Learning diary assessed based on quality, amount of work, and completion of assignments.
+- **Study Path 2**: Learning diary assessed based on the quality and amount of work.
 
 ### **Extras**
 - Smaller tasks to increase your grade by up to 30 points.
@@ -74,7 +124,6 @@ To complete this course, a personal learning diary or report is required:
 ---
 
 ## Schedule
-
 <div class="table-container">
 <table>
   <thead>
@@ -87,68 +136,57 @@ To complete this course, a personal learning diary or report is required:
   </thead>
   <tbody>
     <tr>
-      <td>21.01.2025</td>
+      <td>10.02.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Basics of cross-platform mobile development</td>
     </tr>
     <tr>
-      <td>28.01.2025</td>
+      <td>18.02.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Hands-on cross-platform development</td>
     </tr>
     <tr>
-      <td>04.02.2025</td>
+      <td>25.02.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Programming language of chosen technology</td>
     </tr>
     <tr>
-      <td>20.02.2025</td>
+      <td>11.03.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>First cross-platform mobile application</td>
     </tr>
     <tr>
-      <td>27.02.2025</td>
+      <td>25.03.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Best practices with chosen technology</td>
     </tr>
     <tr>
-      <td>12.03.2025</td>
-      <td>12:30 - 16:00</td>
-      <td>B243</td>
-      <td>Workshop</td>
-    </tr>
-    <tr>
-      <td>20.03.2025</td>
+      <td>31.03.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Platform-specific code</td>
     </tr>
     <tr>
-      <td>27.03.2025</td>
+      <td>08.04.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Testing the application</td>
     </tr>
     <tr>
-      <td>03.04.2025</td>
+      <td>22.04.2025</td>
       <td>08:15 - 11:45</td>
       <td>B243</td>
       <td>Deployment to production</td>
     </tr>
-    <tr>
-      <td>17.04.2025</td>
-      <td>08:15 - 11:45</td>
-      <td>B243</td>
-      <td>Wrap-up and final guidance</td>
-    </tr>
   </tbody>
 </table>
 </div>
+
 
 ---
 
@@ -156,27 +194,20 @@ To complete this course, a personal learning diary or report is required:
 <br/>
 
 ### **1. Lecture sets**
-- Complete the course by following lectures and completing the assignments.
+- Complete the course by following lectures and completing assignments that are given throughout the course, update learning diary accordingly. Explore or/and implement features of your own to get better grade.
 
 <br/>
 
 
 ### **2. Independent Study**
 - Choose a cross-platform mobile application technology/framework.
-- Develop an application that meets given requirements.
+- Study and explore the chosen technology
+- Develop an application that meets given requirements for path 2 completion.
 
 > **Main Goal:** Develop a mobile application that is meaningful to you. Examples include tools, games, or problem-solving applications.
 
 ---
 
-## Instructor
-
-**Matias Hiltunen**  
-[matias.hiltunen@lapinamk.fi](mailto:matias.hiltunen@lapinamk.fi)  
-
-Best way to contact me is through Teams or email!
-
----
 
 ## First task
 
