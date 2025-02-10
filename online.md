@@ -12,7 +12,7 @@ layout: intro
 theme: default
 ---
 
-# Lecture 1, basics of the study module   
+# Lecture 1, introduction
 
 ### Cross-Platform Mobile Application Development
 
@@ -197,7 +197,7 @@ _Answer how you currently understand the terms_
 
 <br/>
 
-### hands-on experience of the most used cross-platform development tools
+### Hands-on experience for setting up popular cross-platform development technologies
 
 
 Requirements:
@@ -233,7 +233,7 @@ Flutter: https://docs.flutter.dev/get-started/install
 
 --- 
 
-## Voting for the Path 1 technology
+## Dart, programming language of the Flutter
 
 ---
 
