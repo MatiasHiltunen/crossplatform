@@ -258,7 +258,9 @@ _Example of a real-world flutter application, made in a DWELL project: https://g
 
 ---
 
-#### The app is going to have following features:
+#### The App
+
+The app we are building is going to have following features:
 
 1. It loads a movie list from some movie api alongside the cover images for the movies, such as: https://developer.themoviedb.org/reference/intro/getting-started
 2. Backend service (example [here](https://github.com/MatiasHiltunen/dart_movies_server)) that we can connect to get access to realtime API which allows us to register new account, singin with the account and then connect with a friend
