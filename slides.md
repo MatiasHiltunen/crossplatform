@@ -239,7 +239,7 @@ Flutter: https://docs.flutter.dev/get-started/install
 
 ---
 
-## Dart - Programming language of The chosen technology
+# Lecture 3, Dart - Programming language of The chosen technology
 
 *See the links to the videos on Moodle about the assignment!*
 
@@ -248,7 +248,7 @@ Package repository for Dart & Flutter libraries: https://pub.dev/
 
 --- 
 
-## First Flutter Application
+# Lecture 4, First Flutter Application
 
 1. Start with working on Google's codelab: https://docs.flutter.dev/get-started/codelab
 
