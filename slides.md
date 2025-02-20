@@ -254,7 +254,7 @@ Package repository for Dart & Flutter libraries: https://pub.dev/
 
 We are going to use that code created in codelab as a base for our application: *Movie Match (or whatever you would like to call it!)*
 
-_Example of a real-world flutter application, made in a DWELL project: https://github.com/MatiasHiltunen/dwellapp-example_
+Example of a real-world flutter application (Proof of Consept), made in a DWELL project: https://github.com/MatiasHiltunen/dwellapp-example
 
 ---
 
