@@ -268,7 +268,35 @@ Flutter: https://docs.flutter.dev/get-started/install
 
 ---
 
+# Lecture 3, Dart - Programming language of The chosen technology
 
+*See the links to videos on Moodle!*
+
+Dart documentation: https://dart.dev/docs
+Package repository for Dart & Flutter libraries: https://pub.dev/
+
+--- 
+
+# Lecture 4, First Flutter Application
+
+1. Start with working on Google's codelab: https://docs.flutter.dev/get-started/codelab
+
+We are going to use that code created in codelab as a base for our application: *Movie Match (or whatever you would like to call it!)*
+
+Example of a real-world flutter application (Proof of Consept), made in a DWELL project: https://github.com/MatiasHiltunen/dwellapp-example
+
+---
+
+#### The App
+
+The app we are building is going to have following features:
+
+1. It loads a movie list from some movie api alongside the cover images for the movies, such as: https://developer.themoviedb.org/reference/intro/getting-started
+2. Backend service (example [here](https://github.com/MatiasHiltunen/dart_movies_server)) that we can connect to get access to realtime API which allows us to register new account, singin with the account and then connect with a friend
+   - Second phone/emulator can be used with testing/experimenting with features
+4. Idea is to have an application that allows choosing a movie with a friend that you both would like to watch, and when first "match" happens, that shows on both devices as a "pop-up" that you have now a movie that you both would like to watch!
+
+---
 
 <style>
 
