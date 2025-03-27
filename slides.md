@@ -611,6 +611,10 @@ Remember to update your learning diary/blog about what you found about visual bu
 
 ### Understanding and implementing platform-specific features in Flutter
 
+The example code created in the lecture can be found here: https://github.com/MatiasHiltunen/moviematch
+
+Note: In that example, we covered using `flutter-dotenv` library to store environment variables into `.env` file. Now we can store for example API keys locally without risking of publishing them to the git -repository. 
+
 ---
 
 ## Documentation Links
