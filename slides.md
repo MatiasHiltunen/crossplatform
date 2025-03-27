@@ -607,6 +607,177 @@ Task: Familiarize with one of the graphical Flutter App building tools.
 Remember to update your learning diary/blog about what you found about visual building tools with Flutter!
 ---
 
+# Lecture 7, Platform-specific Code
+
+### Understanding and implementing platform-specific features in Flutter
+
+---
+
+## Documentation Links
+
+### Platform-Specific Code
+- **Platform Class**: [https://api.flutter.dev/flutter/dart-io/Platform-class.html](https://api.flutter.dev/flutter/dart-io/Platform-class.html)
+- **Platform Integration**: [https://docs.flutter.dev/platform-integration](https://docs.flutter.dev/platform-integration)
+
+### UI Components
+- **Cupertino (iOS-style)**: [https://docs.flutter.dev/development/ui/widgets/cupertino](https://docs.flutter.dev/development/ui/widgets/cupertino)
+- **Material (Android-style)**: [https://docs.flutter.dev/development/ui/widgets/material](https://docs.flutter.dev/development/ui/widgets/material)
+
+---
+
+## Cross-Platform Development Challenges
+
+### Native Languages & Hardware
+
+| Platform | Native Languages | Hardware |
+|----------|-----------------|-----------|
+| iOS | Objective-C, Swift | Apple proprietary |
+| Android | Kotlin, Java, C++, Rust | Wide variety |
+| Web | JavaScript | Web Browsers |
+
+---
+
+## Flutter's Approach
+
+- Flutter uses a rendering engine to abstract away native code
+- Allows same codebase across platforms
+- Sometimes manual implementation needed for specific features
+  - Example: Apple's LiDAR sensor
+  - Platform-specific UI elements
+  - Native system dialogs
+
+**Learn more**: [Flutter Architectural Overview](https://docs.flutter.dev/resources/architectural-overview)
+
+---
+
+## Simple Platform Check
+
+```dart
+import 'dart:io' show Platform;
+
+// Basic platform check
+if (Platform.isIOS) {
+  print('Running on iOS');
+} else if (Platform.isAndroid) {
+  print('Running on Android');
+}
+```
+
+**Documentation**: [Platform Class](https://api.flutter.dev/flutter/dart-io/Platform-class.html)
+
+---
+
+## Platform-Specific Button
+
+```dart
+Widget getPlatformButton() {
+  return Platform.isIOS
+    ? CupertinoButton(
+        child: Text('OK'),
+        onPressed: () {},
+      )
+    : ElevatedButton(
+        child: Text('OK'),
+        onPressed: () {},
+      );
+}
+```
+
+**Documentation**:
+- [CupertinoButton](https://api.flutter.dev/flutter/cupertino/CupertinoButton-class.html)
+- [ElevatedButton](https://api.flutter.dev/flutter/material/ElevatedButton-class.html)
+
+---
+
+## Platform-Specific Dialog
+
+```dart
+void showPlatformDialog(BuildContext context) {
+  if (Platform.isIOS) {
+    showCupertinoDialog(
+      context: context,
+      builder: (_) => CupertinoAlertDialog(
+        title: Text('iOS Alert'),
+        actions: [
+          CupertinoDialogAction(
+            child: Text('OK'),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],
+      ),
+    );
+  } else {
+    showDialog(/* ... */);
+  }
+}
+```
+
+**Documentation**:
+- [showCupertinoDialog](https://api.flutter.dev/flutter/cupertino/showCupertinoDialog.html)
+- [showDialog](https://api.flutter.dev/flutter/material/showDialog.html)
+
+---
+
+## Platform-Specific UI Components
+
+```dart
+Widget buildInput() {
+  return Platform.isIOS
+    ? CupertinoTextField(
+        placeholder: 'iOS Input',
+      )
+    : TextField(
+        decoration: InputDecoration(
+          hintText: 'Android Input',
+        ),
+      );
+}
+```
+
+**Documentation**:
+- [CupertinoTextField](https://api.flutter.dev/flutter/cupertino/CupertinoTextField-class.html)
+- [TextField](https://api.flutter.dev/flutter/material/TextField-class.html)
+
+---
+
+## Best Practices
+
+1. **Abstract Platform Code**
+   - Create wrappers for platform-specific code
+   - Use factory patterns for widgets
+
+2. **User Experience**
+   - Follow platform design guidelines
+   - Maintain feature parity
+
+3. **Testing**
+   - Test on both platforms
+   - Verify platform behaviors
+
+**Learn more**: [Platform Integration](https://docs.flutter.dev/platform-integration)
+
+---
+
+## Platform Channels
+
+For native functionality:
+
+```dart
+const platform = MethodChannel('app/platform');
+
+// Call native code
+try {
+  final result = await platform.invokeMethod('getNativeFeature');
+  print('Result: $result');
+} catch (e) {
+  print('Error: $e');
+}
+```
+
+**Documentation**: [Writing custom platform-specific code](https://docs.flutter.dev/platform-integration/platform-channels)
+
+---
+
 <style>
 
 

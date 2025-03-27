@@ -5,7 +5,7 @@ theme: default
 
 **Table of contents**
 
-<Toc />
+<Toc maxDepth="1"/>
 
 ---
 layout: image
@@ -295,6 +295,324 @@ The app we are building is going to have following features:
 2. Backend service (example [here](https://github.com/MatiasHiltunen/dart_movies_server)) that we can connect to get access to realtime API which allows us to register new account, singin with the account and then connect with a friend
    - Second phone/emulator can be used with testing/experimenting with features
 4. Idea is to have an application that allows choosing a movie with a friend that you both would like to watch, and when first "match" happens, that shows on both devices as a "pop-up" that you have now a movie that you both would like to watch!
+
+---
+
+---
+
+# Lecture 5, Async Dart with Flutter
+
+### Adding movie data to our Flutter application
+
+---
+
+## TMDB API Access
+
+
+- **Link**: [https://www.themoviedb.org/](https://www.themoviedb.org/)
+- **API Documentation**: [https://developer.themoviedb.org/docs/getting-started](https://developer.themoviedb.org/docs/getting-started)
+
+
+## API Access Keys
+
+API Read Access Key is available in Moodle
+
+---
+
+## Flutter & Dart Documentation
+
+### Asynchronous Programming
+- **Dart Async**: [https://dart.dev/codelabs/async-await](https://dart.dev/codelabs/async-await)
+- **Futures and Error Handling**: [https://dart.dev/guides/libraries/futures-error-handling](https://dart.dev/guides/libraries/futures-error-handling)
+- **Streams**: [https://dart.dev/tutorials/language/streams](https://dart.dev/tutorials/language/streams)
+
+### HTTP & JSON
+- **HTTP Package**: [https://pub.dev/packages/http](https://pub.dev/packages/http)
+- **JSON and Serialization**: [https://docs.flutter.dev/data-and-backend/json](https://docs.flutter.dev/data-and-backend/json)
+
+---
+
+## Lecture Code Resources
+
+- **Starting point**: Google Code lab's "First Flutter Application" 
+  - [https://github.com/flutter/codelabs/blob/main/namer/step_08/lib/main.dart](https://github.com/flutter/codelabs/blob/main/namer/step_08/lib/main.dart)
+
+- **Refactored code** based on that is available here: 
+  - [https://github.com/MatiasHiltunen/moviematch](https://github.com/MatiasHiltunen/moviematch)
+
+
+## Implementation Notes
+
+- If you clone the application code from repository, **add the Read Access API key** to `providers/app_state.dart`
+
+- We also tried running the Flutter app on a real device, guide here: 
+  - [https://docs.flutter.dev/get-started/install/windows/mobile#configure-your-target-android-device](https://docs.flutter.dev/get-started/install/windows/mobile#configure-your-target-android-device)
+
+
+---
+
+## Async/Await Basics
+
+```dart
+// Simple async function
+Future<String> fetchData() async {
+  await Future.delayed(Duration(seconds: 1));
+  return "Data loaded";
+}
+
+// Using it
+void loadData() async {
+  var result = await fetchData();
+  print(result);
+}
+```
+
+---
+
+## Explanation: Async/Await
+
+- **async** keyword marks a function that returns a Future
+- **await** pauses execution until the Future completes
+- Code after await runs only when the Future is resolved
+- `Future.delayed` simulates a network request or database query
+- Without async/await, you would need to use callbacks or .then()
+
+**Documentation**: [https://dart.dev/codelabs/async-await](https://dart.dev/codelabs/async-await)
+
+---
+
+## HTTP Request
+
+```dart
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+// Fetch movies
+Future<List> getMovies(String apiKey) async {
+  final url = 'https://api.themoviedb.org/3/movie/popular?api_key=$apiKey';
+  final response = await http.get(Uri.parse(url));
+  
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body)['results'];
+  } else {
+    throw Exception('Failed to load movies');
+  }
+}
+```
+
+---
+
+## Explanation: HTTP Request
+
+- **http package** provides functions to make API calls
+- **await http.get()** sends a GET request and waits for response
+- **jsonDecode** converts the JSON string to Dart objects
+- **statusCode == 200** checks if request was successful
+- **throw Exception** handles errors in a way that can be caught
+- The function returns a Future that will eventually contain movie data
+
+**Documentation**: [https://pub.dev/packages/http/example](https://pub.dev/packages/http/example)
+
+---
+
+## FutureBuilder
+
+```dart
+FutureBuilder<List>(
+  future: getMovies(apiKey),
+  builder: (context, snapshot) {
+    // Loading
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return CircularProgressIndicator();
+    }
+    
+    // Error
+    if (snapshot.hasError) {
+      return Text('Error: ${snapshot.error}');
+    }
+    
+    // Success
+    final movies = snapshot.data!;
+    return ListView.builder(
+      itemCount: movies.length,
+      itemBuilder: (context, index) => ListTile(
+        title: Text(movies[index]['title']),
+      ),
+    );
+  },
+)
+```
+
+---
+
+## Explanation: FutureBuilder
+
+- **FutureBuilder** automatically handles different states of a Future
+- **snapshot.connectionState** tells you if data is still loading
+- **snapshot.hasError** checks if an error occurred
+- **snapshot.data** contains the result when the Future completes
+- The widget rebuilds automatically when the Future's state changes
+- Perfect for one-time data fetching operations
+
+**Documentation**: [https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html](https://api.flutter.dev/flutter/widgets/FutureBuilder-class.html)
+
+---
+
+## StreamBuilder
+
+```dart
+// Simple counter stream
+Stream<int> countStream() async* {
+  for (int i = 1; i <= 5; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    yield i;
+  }
+}
+
+// Usage
+StreamBuilder<int>(
+  stream: countStream(),
+  builder: (context, snapshot) {
+    if (!snapshot.hasData) return Text('Loading...');
+    
+    return Text(
+      'Count: ${snapshot.data}',
+      style: TextStyle(fontSize: 24),
+    );
+  },
+)
+```
+
+---
+
+## Explanation: StreamBuilder
+
+- **Stream** provides a sequence of asynchronous events (like a continuous Future)
+- **async*** marks a function that returns a Stream
+- **yield** emits values to the stream one at a time
+- **StreamBuilder** rebuilds UI whenever new values arrive in the stream
+- Great for real-time data, user input, or any continuous data flow
+- Used for websockets, location updates, form validation, etc.
+
+**Documentation**: [https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html)
+
+---
+
+## Provider Pattern
+
+```dart
+// Provider class
+class MoviesProvider with ChangeNotifier {
+  List _movies = [];
+  bool _loading = false;
+  
+  List get movies => _movies;
+  bool get loading => _loading;
+  
+  Future<void> fetchMovies(String apiKey) async {
+    _loading = true;
+    notifyListeners();
+    
+    try {
+      _movies = await getMovies(apiKey);
+    } finally {
+      _loading = false;
+      notifyListeners();
+    }
+  }
+}
+
+// Setup in main.dart
+ChangeNotifierProvider(
+  create: (_) => MoviesProvider(),
+  child: MyApp(),
+)
+```
+
+---
+
+## Explanation: Provider Pattern
+
+- **ChangeNotifier** is a class that provides change notifications to listeners
+- **notifyListeners()** tells widgets to rebuild when data changes
+- **ChangeNotifierProvider** makes the state available throughout the widget tree
+- Provider separates business logic from UI code
+- Centralized state management prevents "prop drilling"
+- Helps maintain clean application architecture
+
+**Documentation**: [https://pub.dev/packages/provider](https://pub.dev/packages/provider)
+
+---
+
+## Consumer Widget
+
+```dart
+Consumer<MoviesProvider>(
+  builder: (ctx, provider, _) {
+    // Show loading indicator
+    if (provider.loading) {
+      return CircularProgressIndicator();
+    }
+    
+    // Show movie list
+    return ListView.builder(
+      itemCount: provider.movies.length,
+      itemBuilder: (ctx, i) => ListTile(
+        title: Text(provider.movies[i]['title']),
+      ),
+    );
+  },
+)
+```
+
+---
+
+## Explanation: Consumer Widget
+
+- **Consumer** rebuilds only when specific provider data changes
+- More efficient than rebuilding the entire widget tree
+- The **builder** function receives the provider instance
+- Automatically listens to changes from notifyListeners()
+- Can be nested to consume multiple providers
+- Works with any widget, not just lists
+
+**Documentation**: [https://pub.dev/documentation/provider/latest/provider/Consumer-class.html](https://pub.dev/documentation/provider/latest/provider/Consumer-class.html)
+
+---
+
+## Error Handling
+
+```dart
+try {
+  // Show loading state
+  setState(() => loading = true);
+  
+  // API call
+  final movies = await getMovies(apiKey);
+  setState(() {
+    this.movies = movies;
+    error = null;
+  });
+} catch (e) {
+  setState(() => error = 'Failed to load movies');
+  print('Error: $e'); // Log for debugging
+} finally {
+  setState(() => loading = false);
+}
+```
+
+---
+
+## Explanation: Error Handling
+
+- **try/catch/finally** pattern handles errors gracefully
+- **setState()** updates UI based on different states
+- **catch** block captures any errors from the try block
+- **finally** always executes, ensuring loading state is reset
+- Good error handling improves user experience
+- Logging errors helps with debugging
+
+**Documentation**: [https://dart.dev/guides/libraries/futures-error-handling](https://dart.dev/guides/libraries/futures-error-handling)
 
 ---
 
